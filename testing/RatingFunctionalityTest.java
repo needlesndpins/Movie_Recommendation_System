@@ -1,4 +1,4 @@
-package milestone2.testing;
+package testing;
 
 import java.time.LocalDate;
 import java.util.*;

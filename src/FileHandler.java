@@ -1,4 +1,4 @@
-package milestone2.src;
+package src;
 
 import java.io.*;            // For Buffer and other file reading functions
 import java.nio.file.AtomicMoveNotSupportedException;
@@ -39,7 +39,7 @@ public class FileHandler {
 
         ArrayList<Movie> result = new ArrayList(); // Store the movies from movies.txt
 
-        String file = "milestone2/data/movies.txt"; // File path
+        String file = "data/movies.txt"; // File path
         // Note: file path is dependent on where you open the project from.
         // Open in VSCODE or other IDE from root 2ME3-GROUP-PROJECT-GROUP-9 folder
         // Do not open from milestone2, or src directly. Otherwise it won't work
@@ -172,7 +172,7 @@ public class FileHandler {
         // Map<Movie,Review> result = new HashMap<Movie,Review>(); // Store the Reviews from my_ratings.txt
         ArrayList<Review> result = new ArrayList();
 
-        String file = "milestone2/data/my_ratings.txt"; // File path
+        String file = "data/my_ratings.txt"; // File path
         // Note: file path is dependent on where you open the project from.
         // Open in VSCODE or other IDE from root 2ME3-GROUP-PROJECT-GROUP-9 folder
         // Do not open from milestone2, or src directly. Otherwise it won't work
@@ -280,8 +280,8 @@ public class FileHandler {
             return;
         }
 
-        String file = "milestone2/data/my_ratings.txt"; // File path
-        String tempFile = "milestone2/data/my_tempratings.txt"; /// temp file
+        String file = "data/my_ratings.txt"; // File path
+        String tempFile = "data/my_tempratings.txt"; /// temp file
 
         boolean reviewExists = false; // Flag used to mark if updating review (true) or creating new review (false)
 
@@ -379,7 +379,7 @@ public class FileHandler {
      * Checks if my_ratings.txt exists, creates it if it doesn't
      */
     public static void ratingsFileExists(){ 
-        String file = "milestone2/data/my_ratings.txt"; // File path
+        String file = "data/my_ratings.txt"; // File path
         File ratingFile = new File(file);
 
         if(!ratingFile.exists()){ 

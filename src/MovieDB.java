@@ -1,4 +1,4 @@
-package milestone2.src;
+package src;
 
 import java.util.ArrayList;
 

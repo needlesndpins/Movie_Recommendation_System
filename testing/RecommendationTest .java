@@ -1,7 +1,7 @@
-package milestone2.testing;
+package testing;
 
 import java.util.*;
-import milestone2.src.*;
+import src.*;
 import java.time.LocalDate;
 
 class RecommendationTest {
@@ -19,12 +19,12 @@ class RecommendationTest {
         ArrayList<String> moviesToReview = new ArrayList<>();
 
         // FR-RE-T1 expected output: animated movies without any of the reviewed movies
-        // moviesToReview.add("WALL-E");
-        // moviesToReview.add("The Lion King");
-        // moviesToReview.add("Spirited Away");
-        // moviesToReview.add("Coco");
-        // moviesToReview.add("Toy Story");
-        // makeReviews(moviesToReview);
+        moviesToReview.add("WALL-E");
+        moviesToReview.add("The Lion King");
+        moviesToReview.add("Spirited Away");
+        moviesToReview.add("Coco");
+        moviesToReview.add("Toy Story");
+        makeReviews(moviesToReview);
 
         // FR-RE-T2 expected output: mostly romance movies
         // moviesToReview.add("Forrest Gump");
@@ -50,8 +50,8 @@ class RecommendationTest {
 
         // FR-RE-T5 expected output: 5 movies that are not the same as the user rated
         // movie.
-        moviesToReview.add("Forrest Gump");
-        makeReviews(moviesToReview);
+        // moviesToReview.add("Forrest Gump");
+        // makeReviews(moviesToReview);
 
         // initialize reviews
         FileHandler.ratingsFileExists();

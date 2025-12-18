@@ -1,4 +1,4 @@
-package milestone2.testing;
+package testing;
 
 import java.util.*;
 import milestone2.src.*;

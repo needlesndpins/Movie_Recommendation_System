@@ -1,6 +1,7 @@
-package milestone2.src;
+package src;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class RecommendationEngine {
     private User user;
@@ -36,25 +37,49 @@ public class RecommendationEngine {
     }
 
 
-    //todo
     public void recommendMovies(){
         ArrayList<Movie> movies = MovieDB.getMovies();
         ArrayList<Movie> reviews = user.getReviewedMovies();
 
-        //creates a temporary list of movies that have not been reviewed
-        ArrayList<Movie> tempMovies = new ArrayList<>();
-        for(Movie movie : movies){
-            if(!Helper.contains(reviews,movie)){
-                tempMovies.add(movie);
+        //New code which uses O(n) time n = number of movies in database
+
+        //min-heap ordered by movie score
+        PriorityQueue<Movie> topMovies = new PriorityQueue<>(
+            (m1, m2) -> Float.compare(getScore(m1), getScore(m2))
+        );
+
+        for (Movie movie : movies) {
+            //skip movies the user has already reviewed
+            if (Helper.contains(reviews, movie)) {
+                continue;
+            }
+
+            topMovies.offer(movie); //add movie
+
+            //keep only top 5 movies
+            if (topMovies.size() > 5) {
+                topMovies.poll(); //remove lowest scoring movie
             }
         }
 
-        //sorts movies based on their score from greatest to least and prints them for the user
-        tempMovies.sort((m1, m2) -> Float.compare(getScore(m2), getScore(m1))); 	     
-        for(int i = 0; i < 5 ; i++){
-            tempMovies.get(i).printMovie(); 
-        }
         return;
+
+        //Old code using O(nlog(n)) time n = number of movies in database
+
+        // //creates a temporary list of movies that have not been reviewed
+        // ArrayList<Movie> tempMovies = new ArrayList<>();
+        // for(Movie movie : movies){
+        //     if(!Helper.contains(reviews,movie)){
+        //         tempMovies.add(movie);
+        //     }
+        // }
+
+        // //sorts movies based on their score from greatest to least and prints them for the user
+        // tempMovies.sort((m1, m2) -> Float.compare(getScore(m2), getScore(m1))); 	     
+        // for(int i = 0; i < 5 ; i++){
+        //     tempMovies.get(i).printMovie(); 
+        // }
+        // return;
 
     }
 }
