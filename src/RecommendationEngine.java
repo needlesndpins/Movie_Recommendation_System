@@ -62,6 +62,17 @@ public class RecommendationEngine {
             }
         }
 
+        //reverse min heap and store in an arraylist
+        ArrayList<Movie> result = new ArrayList<>();
+        while (!topMovies.isEmpty()) {
+            result.add(topMovies.poll());
+        }
+
+        //print from highest to lowest score
+        for (int i = result.size() - 1; i >= 0; i--) {
+            result.get(i).printMovie();
+        }
+        
         return;
 
         //Old code using O(nlog(n)) time n = number of movies in database
